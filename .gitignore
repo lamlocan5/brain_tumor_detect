@@ -3,3 +3,5 @@ datasets/
 *.jpg
 
 pred/
+
+*.zip
