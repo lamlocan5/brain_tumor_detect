@@ -1,0 +1,100 @@
+Epoch 1 started at 2024-08-29 00:25:27.061861
+Epoch 1 - Loss: 0.6731, Accuracy: 0.5915, Val_Loss: 0.5774, Val_Accuracy: 0.7053
+Epoch 2 started at 2024-08-29 00:25:30.295465
+Epoch 2 - Loss: 0.5159, Accuracy: 0.7577, Val_Loss: 0.5250, Val_Accuracy: 0.7193
+Epoch 3 started at 2024-08-29 00:25:31.631806
+Epoch 3 - Loss: 0.4130, Accuracy: 0.8199, Val_Loss: 0.3744, Val_Accuracy: 0.8167
+Epoch 4 started at 2024-08-29 00:25:33.023336
+Epoch 4 - Loss: 0.3032, Accuracy: 0.8716, Val_Loss: 0.3748, Val_Accuracy: 0.8353
+Epoch 5 started at 2024-08-29 00:25:34.417464
+Epoch 5 - Loss: 0.2009, Accuracy: 0.9256, Val_Loss: 0.2471, Val_Accuracy: 0.9026
+Epoch 6 started at 2024-08-29 00:25:35.727286
+Epoch 6 - Loss: 0.1386, Accuracy: 0.9489, Val_Loss: 0.2760, Val_Accuracy: 0.8886
+Epoch 7 started at 2024-08-29 00:25:37.065430
+Epoch 7 - Loss: 0.1090, Accuracy: 0.9634, Val_Loss: 0.2146, Val_Accuracy: 0.9420
+Epoch 8 started at 2024-08-29 00:25:38.392551
+Epoch 8 - Loss: 0.0665, Accuracy: 0.9802, Val_Loss: 0.1936, Val_Accuracy: 0.9397
+Epoch 9 started at 2024-08-29 00:25:39.805046
+Epoch 9 - Loss: 0.0321, Accuracy: 0.9936, Val_Loss: 0.2772, Val_Accuracy: 0.9118
+Epoch 10 started at 2024-08-29 00:25:41.195437
+Epoch 10 - Loss: 0.0198, Accuracy: 0.9936, Val_Loss: 0.2840, Val_Accuracy: 0.9466
+Epoch 1 started at 2024-08-29 00:26:25.573785
+Epoch 1 - Loss: 0.6857, Accuracy: 0.5596, Val_Loss: 0.6703, Val_Accuracy: 0.6381
+Epoch 2 started at 2024-08-29 00:26:28.377865
+Epoch 2 - Loss: 0.5795, Accuracy: 0.6909, Val_Loss: 0.4997, Val_Accuracy: 0.7889
+Epoch 3 started at 2024-08-29 00:26:29.799195
+Epoch 3 - Loss: 0.4227, Accuracy: 0.8100, Val_Loss: 0.4054, Val_Accuracy: 0.8353
+Epoch 4 started at 2024-08-29 00:26:31.132945
+Epoch 4 - Loss: 0.2982, Accuracy: 0.8855, Val_Loss: 0.2958, Val_Accuracy: 0.8933
+Epoch 5 started at 2024-08-29 00:26:32.621399
+Epoch 5 - Loss: 0.2120, Accuracy: 0.9175, Val_Loss: 0.2444, Val_Accuracy: 0.9002
+Epoch 6 started at 2024-08-29 00:26:33.970137
+Epoch 6 - Loss: 0.1271, Accuracy: 0.9529, Val_Loss: 0.2146, Val_Accuracy: 0.9281
+Epoch 7 started at 2024-08-29 00:26:35.241939
+Epoch 7 - Loss: 0.1043, Accuracy: 0.9640, Val_Loss: 0.2948, Val_Accuracy: 0.9049
+Epoch 8 started at 2024-08-29 00:26:36.477465
+Epoch 8 - Loss: 0.0768, Accuracy: 0.9733, Val_Loss: 0.2119, Val_Accuracy: 0.9327
+Epoch 9 started at 2024-08-29 00:26:37.719650
+Epoch 9 - Loss: 0.0486, Accuracy: 0.9872, Val_Loss: 0.1950, Val_Accuracy: 0.9327
+Epoch 10 started at 2024-08-29 00:26:38.952995
+Epoch 10 - Loss: 0.0548, Accuracy: 0.9773, Val_Loss: 0.4369, Val_Accuracy: 0.8794
+Epoch 1 started at 2024-08-29 01:03:07.920031
+Epoch 1 - Loss: 0.6920, Accuracy: 0.5596, Val_Loss: 0.6844, Val_Accuracy: 0.4733
+Epoch 2 started at 2024-08-29 01:03:10.629293
+Epoch 2 - Loss: 0.6255, Accuracy: 0.6444, Val_Loss: 0.5330, Val_Accuracy: 0.7494
+Epoch 3 started at 2024-08-29 01:03:12.010887
+Epoch 3 - Loss: 0.5079, Accuracy: 0.7594, Val_Loss: 0.4640, Val_Accuracy: 0.8121
+Epoch 4 started at 2024-08-29 01:03:13.369074
+Epoch 4 - Loss: 0.4147, Accuracy: 0.8158, Val_Loss: 0.3848, Val_Accuracy: 0.8376
+Epoch 5 started at 2024-08-29 01:03:14.668120
+Epoch 5 - Loss: 0.3464, Accuracy: 0.8512, Val_Loss: 0.3269, Val_Accuracy: 0.8538
+Epoch 6 started at 2024-08-29 01:03:16.086117
+Epoch 6 - Loss: 0.2891, Accuracy: 0.8820, Val_Loss: 0.3467, Val_Accuracy: 0.8654
+Epoch 7 started at 2024-08-29 01:03:17.374665
+Epoch 7 - Loss: 0.2290, Accuracy: 0.9111, Val_Loss: 0.2617, Val_Accuracy: 0.9026
+Epoch 8 started at 2024-08-29 01:03:18.661437
+Epoch 8 - Loss: 0.1748, Accuracy: 0.9378, Val_Loss: 0.2264, Val_Accuracy: 0.9211
+Epoch 9 started at 2024-08-29 01:03:19.934072
+Epoch 9 - Loss: 0.1277, Accuracy: 0.9570, Val_Loss: 0.2329, Val_Accuracy: 0.9095
+Epoch 10 started at 2024-08-29 01:03:21.339096
+Epoch 10 - Loss: 0.0931, Accuracy: 0.9704, Val_Loss: 0.2110, Val_Accuracy: 0.9281
+Epoch 1 started at 2024-08-29 01:03:29.865251
+Epoch 1 - Loss: 0.6800, Accuracy: 0.5799, Val_Loss: 0.6417, Val_Accuracy: 0.5940
+Epoch 2 started at 2024-08-29 01:03:32.759865
+Epoch 2 - Loss: 0.5926, Accuracy: 0.6717, Val_Loss: 0.5311, Val_Accuracy: 0.7309
+Epoch 3 started at 2024-08-29 01:03:34.102155
+Epoch 3 - Loss: 0.4839, Accuracy: 0.7687, Val_Loss: 0.4629, Val_Accuracy: 0.7819
+Epoch 4 started at 2024-08-29 01:03:35.411657
+Epoch 4 - Loss: 0.4161, Accuracy: 0.7949, Val_Loss: 0.3985, Val_Accuracy: 0.8260
+Epoch 5 started at 2024-08-29 01:03:36.827863
+Epoch 5 - Loss: 0.3219, Accuracy: 0.8716, Val_Loss: 0.3478, Val_Accuracy: 0.8492
+Epoch 6 started at 2024-08-29 01:03:38.086023
+Epoch 6 - Loss: 0.2342, Accuracy: 0.9094, Val_Loss: 0.2885, Val_Accuracy: 0.8910
+Epoch 7 started at 2024-08-29 01:03:39.319740
+Epoch 7 - Loss: 0.1747, Accuracy: 0.9361, Val_Loss: 0.3205, Val_Accuracy: 0.8677
+Epoch 8 started at 2024-08-29 01:03:40.604698
+Epoch 8 - Loss: 0.1379, Accuracy: 0.9541, Val_Loss: 0.2380, Val_Accuracy: 0.9165
+Epoch 9 started at 2024-08-29 01:03:41.985534
+Epoch 9 - Loss: 0.0845, Accuracy: 0.9762, Val_Loss: 0.2246, Val_Accuracy: 0.9258
+Epoch 10 started at 2024-08-29 01:03:43.285532
+Epoch 10 - Loss: 0.0605, Accuracy: 0.9808, Val_Loss: 0.2657, Val_Accuracy: 0.9211
+Epoch 1 started at 2024-08-29 01:04:22.284320
+Epoch 1 - Loss: 0.7104, Accuracy: 0.5462, Val_Loss: 0.6759, Val_Accuracy: 0.5824
+Epoch 2 started at 2024-08-29 01:04:24.782399
+Epoch 2 - Loss: 0.6416, Accuracy: 0.6339, Val_Loss: 0.5732, Val_Accuracy: 0.6961
+Epoch 3 started at 2024-08-29 01:04:26.009460
+Epoch 3 - Loss: 0.5436, Accuracy: 0.7193, Val_Loss: 0.4856, Val_Accuracy: 0.7564
+Epoch 4 started at 2024-08-29 01:04:27.251191
+Epoch 4 - Loss: 0.4516, Accuracy: 0.7868, Val_Loss: 0.4230, Val_Accuracy: 0.8190
+Epoch 5 started at 2024-08-29 01:04:28.561601
+Epoch 5 - Loss: 0.3461, Accuracy: 0.8565, Val_Loss: 0.3482, Val_Accuracy: 0.8469
+Epoch 6 started at 2024-08-29 01:04:29.790004
+Epoch 6 - Loss: 0.2516, Accuracy: 0.9041, Val_Loss: 0.2908, Val_Accuracy: 0.8886
+Epoch 7 started at 2024-08-29 01:04:31.065061
+Epoch 7 - Loss: 0.1965, Accuracy: 0.9262, Val_Loss: 0.2425, Val_Accuracy: 0.9026
+Epoch 8 started at 2024-08-29 01:04:32.289997
+Epoch 8 - Loss: 0.1428, Accuracy: 0.9535, Val_Loss: 0.2887, Val_Accuracy: 0.8863
+Epoch 9 started at 2024-08-29 01:04:33.575239
+Epoch 9 - Loss: 0.1134, Accuracy: 0.9599, Val_Loss: 0.2307, Val_Accuracy: 0.9281
+Epoch 10 started at 2024-08-29 01:04:34.795178
+Epoch 10 - Loss: 0.0700, Accuracy: 0.9791, Val_Loss: 0.2877, Val_Accuracy: 0.9026
