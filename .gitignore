@@ -2,3 +2,4 @@ datasets/
 *.jpg
 pred/
 *.zip
+models/*
