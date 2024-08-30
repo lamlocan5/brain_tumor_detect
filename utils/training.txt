@@ -18,6 +18,8 @@ Epoch 9 started at 2024-08-29 00:25:39.805046
 Epoch 9 - Loss: 0.0321, Accuracy: 0.9936, Val_Loss: 0.2772, Val_Accuracy: 0.9118
 Epoch 10 started at 2024-08-29 00:25:41.195437
 Epoch 10 - Loss: 0.0198, Accuracy: 0.9936, Val_Loss: 0.2840, Val_Accuracy: 0.9466
+
+
 Epoch 1 started at 2024-08-29 00:26:25.573785
 Epoch 1 - Loss: 0.6857, Accuracy: 0.5596, Val_Loss: 0.6703, Val_Accuracy: 0.6381
 Epoch 2 started at 2024-08-29 00:26:28.377865
@@ -38,6 +40,8 @@ Epoch 9 started at 2024-08-29 00:26:37.719650
 Epoch 9 - Loss: 0.0486, Accuracy: 0.9872, Val_Loss: 0.1950, Val_Accuracy: 0.9327
 Epoch 10 started at 2024-08-29 00:26:38.952995
 Epoch 10 - Loss: 0.0548, Accuracy: 0.9773, Val_Loss: 0.4369, Val_Accuracy: 0.8794
+
+
 Epoch 1 started at 2024-08-29 01:03:07.920031
 Epoch 1 - Loss: 0.6920, Accuracy: 0.5596, Val_Loss: 0.6844, Val_Accuracy: 0.4733
 Epoch 2 started at 2024-08-29 01:03:10.629293
@@ -57,6 +61,8 @@ Epoch 8 - Loss: 0.1748, Accuracy: 0.9378, Val_Loss: 0.2264, Val_Accuracy: 0.9211
 Epoch 9 started at 2024-08-29 01:03:19.934072
 Epoch 9 - Loss: 0.1277, Accuracy: 0.9570, Val_Loss: 0.2329, Val_Accuracy: 0.9095
 Epoch 10 started at 2024-08-29 01:03:21.339096
+
+
 Epoch 10 - Loss: 0.0931, Accuracy: 0.9704, Val_Loss: 0.2110, Val_Accuracy: 0.9281
 Epoch 1 started at 2024-08-29 01:03:29.865251
 Epoch 1 - Loss: 0.6800, Accuracy: 0.5799, Val_Loss: 0.6417, Val_Accuracy: 0.5940
@@ -78,6 +84,8 @@ Epoch 9 started at 2024-08-29 01:03:41.985534
 Epoch 9 - Loss: 0.0845, Accuracy: 0.9762, Val_Loss: 0.2246, Val_Accuracy: 0.9258
 Epoch 10 started at 2024-08-29 01:03:43.285532
 Epoch 10 - Loss: 0.0605, Accuracy: 0.9808, Val_Loss: 0.2657, Val_Accuracy: 0.9211
+
+
 Epoch 1 started at 2024-08-29 01:04:22.284320
 Epoch 1 - Loss: 0.7104, Accuracy: 0.5462, Val_Loss: 0.6759, Val_Accuracy: 0.5824
 Epoch 2 started at 2024-08-29 01:04:24.782399
@@ -98,3 +106,6 @@ Epoch 9 started at 2024-08-29 01:04:33.575239
 Epoch 9 - Loss: 0.1134, Accuracy: 0.9599, Val_Loss: 0.2307, Val_Accuracy: 0.9281
 Epoch 10 started at 2024-08-29 01:04:34.795178
 Epoch 10 - Loss: 0.0700, Accuracy: 0.9791, Val_Loss: 0.2877, Val_Accuracy: 0.9026
+------------------------------------------------------------------------
+kfold 
+

@@ -98,7 +98,6 @@
 # print(f"F1 Score: {f1}")
 
 
-
 import os
 import cv2
 import torch
@@ -108,7 +107,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import f1_score
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
@@ -139,22 +138,7 @@ for image_name in yes_tumor_images:
 
 dataset = np.array(dataset)
 labels = np.array(labels)
-
-x_train, x_test, y_train, y_test = train_test_split(dataset, labels, test_size=0.2, random_state=42)
-
-x_train = torch.tensor(x_train, dtype=torch.float32)
-x_test = torch.tensor(x_test, dtype=torch.float32)
-y_train = torch.tensor(y_train, dtype=torch.long)
-y_test = torch.tensor(y_test, dtype=torch.long)
-
-x_train = x_train.permute(0, 3, 1, 2) / 255.0  # Permute dimensions for PyTorch (N, C, H, W)
-x_test = x_test.permute(0, 3, 1, 2) / 255.0
-
-train_data = torch.utils.data.TensorDataset(x_train, y_train)
-test_data = torch.utils.data.TensorDataset(x_test, y_test)
-
-train_loader = DataLoader(train_data, batch_size=16, shuffle=True)
-test_loader = DataLoader(test_data, batch_size=16, shuffle=False)
+print(f'Dataset size: {len(dataset)}, Labels size: {len(labels)}')
 
 # Model definition
 class BrainTumorNet(nn.Module):
@@ -178,76 +162,131 @@ class BrainTumorNet(nn.Module):
         x = x.view(-1, 64 * (INPUT_SIZE // 8) * (INPUT_SIZE // 8))
         x = F.relu(self.fc1(x))
         x = self.dropout(x)
-        x = torch.sigmoid(self.fc2(x))
+        x = torch.sigmoid(self.fc2(x))  # Use sigmoid if using BCELoss
         return x
 
-model = BrainTumorNet()
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = model.to(device)
+# K-Fold Cross Validation
+k_folds = 5
+kf = StratifiedKFold(n_splits=k_folds, shuffle=True, random_state=42)
+fold_f1_scores = []
 
-# Loss function and optimizer
-criterion = nn.BCELoss()
-optimizer = optim.Adam(model.parameters(), lr=1e-3)
-
-# Learning rate scheduler
-scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=3, verbose=True, min_lr=1e-6)
-
-# Training loop
-num_epochs = 30
-for epoch in range(num_epochs):
-    model.train()
-    running_loss = 0.0
-    for inputs, labels in train_loader:
-        inputs, labels = inputs.to(device), labels.to(device, dtype=torch.float32)
-        
-        optimizer.zero_grad()
-        
-        outputs = model(inputs).squeeze()
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
-        
-        running_loss += loss.item()
+for fold, (train_index, val_index) in enumerate(kf.split(dataset, labels)):
+    print(f'Fold {fold + 1}/{k_folds}')
     
-    print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {running_loss/len(train_loader):.4f}")
+    try:
+        # Debugging information
+        print(f"Train indices: {train_index}")
+        print(f"Validation indices: {val_index}")
+        print(f"Labels length: {len(labels)}")
+        print(f"Train index range: {train_index.min()} - {train_index.max()}")
+        print(f"Validation index range: {val_index.min()} - {val_index.max()}")
 
-    # Validation
-    model.eval()
-    val_loss = 0.0
-    correct = 0
-    total = 0
-    with torch.no_grad():
-        for inputs, labels in test_loader:
-            inputs, labels = inputs.to(device), labels.to(device, dtype=torch.float32)
-            outputs = model(inputs).squeeze()
-            loss = criterion(outputs, labels)
-            val_loss += loss.item()
-            
-            predicted = (outputs > 0.5).float()
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-    
-    print(f"Validation Loss: {val_loss/len(test_loader):.4f}, Accuracy: {100 * correct / total:.2f}%")
-    
-    # Adjust learning rate
-    scheduler.step(val_loss)
+        # Check data slice sizes
+        print(f"Dataset shape before slicing: {dataset.shape}")
+        print(f"Labels shape before slicing: {labels.shape}")
+        print(f"x_train shape before slicing: {dataset.shape}")
+        print(f"x_train shape after slicing: {dataset[train_index].shape}")
+        print(f"x_val shape after slicing: {dataset[val_index].shape}")
 
-save_path = 'E:/Project/2024 Project/BrainTumor_Lam/models/brain_tumor_pytorch_v1.pth'
+        # Prepare training and validation data
+        x_train, x_val = dataset[train_index], dataset[val_index]
+        y_train, y_val = labels[train_index], labels[val_index]
+
+        # Debugging tensor shapes
+        print(f"x_train tensor shape: {x_train.shape}")
+        print(f"x_val tensor shape: {x_val.shape}")
+        print(f"y_train tensor shape: {y_train.shape}")
+        print(f"y_val tensor shape: {y_val.shape}")
+        
+        # Convert to tensor
+        x_train = torch.tensor(x_train, dtype=torch.float32).permute(0, 3, 1, 2) / 255.0
+        x_val = torch.tensor(x_val, dtype=torch.float32).permute(0, 3, 1, 2) / 255.0
+        y_train = torch.tensor(y_train, dtype=torch.float32)  # For BCELoss
+        y_val = torch.tensor(y_val, dtype=torch.float32)
+        
+        # Prepare DataLoader
+        train_data = torch.utils.data.TensorDataset(x_train, y_train)
+        val_data = torch.utils.data.TensorDataset(x_val, y_val)
+        
+        # Debugging DataLoader
+        print(f"Train data size: {len(train_data)}")
+        print(f"Validation data size: {len(val_data)}")
+
+        train_loader = DataLoader(train_data, batch_size=16, shuffle=True)
+        val_loader = DataLoader(val_data, batch_size=16, shuffle=False)
+
+        # Model, loss, optimizer
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        model = BrainTumorNet().to(device)
+        criterion = nn.BCELoss()
+        optimizer = optim.Adam(model.parameters(), lr=1e-3)
+        scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=3, min_lr=1e-6)
+        
+        num_epochs = 10
+        # Training
+        for epoch in range(num_epochs):
+            model.train()
+            running_loss = 0.0
+            for inputs, labels in train_loader:
+                inputs, labels = inputs.to(device), labels.to(device)
+
+                optimizer.zero_grad()
+
+                outputs = model(inputs).squeeze()
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+
+                running_loss += loss.item()
+
+            print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {running_loss/len(train_loader):.4f}")
+
+            # Validation
+            model.eval()
+            val_loss = 0.0
+            correct = 0
+            total = 0
+            with torch.no_grad():
+                for inputs, labels in val_loader:
+                    inputs, labels = inputs.to(device), labels.to(device)
+                    outputs = model(inputs).squeeze()
+                    loss = criterion(outputs, labels)
+                    val_loss += loss.item()
+
+                    predicted = (outputs > 0.5).float()
+                    total += labels.size(0)
+                    correct += (predicted == labels).sum().item()
+
+            print(f"Validation Loss: {val_loss/len(val_loader):.4f}, Accuracy: {100 * correct / total:.2f}%")
+
+            # Adjust learning rate
+            scheduler.step(val_loss)
+
+        # F1 Score Calculation
+        y_pred = []
+        y_true = []
+
+        model.eval()
+        with torch.no_grad():
+            for inputs, labels in val_loader:
+                inputs = inputs.to(device)
+                outputs = model(inputs).squeeze()
+                predicted = (outputs > 0.5).cpu().numpy().astype(int)
+                y_pred.extend(predicted)
+                y_true.extend(labels.numpy())
+
+        f1 = f1_score(y_true, y_pred)
+        fold_f1_scores.append(f1)
+        print(f"Fold {fold+1} F1 Score: {f1:.4f}")
+    
+    except Exception as e:
+        print(f"An error occurred during fold {fold + 1}: {e}")
+
+# Average F1 score of all folds
+mean_f1_score = np.mean(fold_f1_scores)
+print(f"Mean F1 Score over {k_folds} folds: {mean_f1_score:.4f}")
+
 # Save the model
+save_path = 'E:/Project/2024 Project/BrainTumor_Lam/models/brain_tumor_pytorch_v3_kfold.pth'
 torch.save(model.state_dict(), save_path)
 
-# Calculate F1 Score
-model.eval()
-y_pred = []
-y_true = []
-
-with torch.no_grad():
-    for inputs, labels in test_loader:
-        inputs = inputs.to(device)
-        outputs = model(inputs).squeeze()
-        predicted = (outputs > 0.5).cpu().numpy().astype(int)
-        y_pred.extend(predicted)
-        y_true.extend(labels.numpy())
-
-f1 = f1_score(y_true, y_pred)
-print(f"F1 Score: {f1}")
